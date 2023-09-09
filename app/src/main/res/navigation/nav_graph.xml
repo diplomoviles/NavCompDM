@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/formularioFragment">
+
+    <fragment
+        android:id="@+id/formularioFragment"
+        android:name="com.amaurypm.navcompdm.ui.fragments.FormularioFragment"
+        android:label="fragment_formulario"
+        tools:layout="@layout/fragment_formulario" >
+        <action
+            android:id="@+id/action_formularioFragment_to_datosFragment"
+            app:destination="@id/datosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/datosFragment"
+        android:name="com.amaurypm.navcompdm.ui.fragments.DatosFragment"
+        android:label="fragment_datos"
+        tools:layout="@layout/fragment_datos" >
+
+        <action
+            android:id="@+id/action_datosFragment_to_formularioFragment"
+            app:destination="@id/formularioFragment" />
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <argument
+            android:name="mobile"
+            app:argType="string" />
+        <argument
+            android:name="numero"
+            app:argType="integer"
+            />
+        <argument
+            android:name="user"
+            app:argType="com.amaurypm.navcompdm.data.model.User"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+</navigation>
