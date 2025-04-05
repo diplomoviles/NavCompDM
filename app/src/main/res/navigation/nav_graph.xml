@@ -22,5 +22,18 @@
         <action
             android:id="@+id/action_datosFragment_to_formularioFragment"
             app:destination="@id/formularioFragment" />
+        <argument
+            android:name="name"
+            app:argType="string"
+            android:defaultValue=""/>
+        <argument
+            android:name="mobile"
+            app:argType="string"
+            android:defaultValue=""/>
+        <argument
+            android:name="user"
+            app:argType="com.amaurypm.navcompdm.data.model.User"
+            app:nullable="true"
+            android:defaultValue="@null" />
     </fragment>
 </navigation>

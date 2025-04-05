@@ -7,8 +7,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.amaurypm.navcompdm.R
+import com.amaurypm.navcompdm.data.model.User
 import com.amaurypm.navcompdm.databinding.FragmentFormularioBinding
 import com.google.android.material.textfield.TextInputEditText
 
@@ -39,10 +41,26 @@ class FormularioFragment : Fragment() {
 
         binding.btnVerifyDetails.setOnClickListener {
 
-            //Establecemos la navegación entre fragments
-            findNavController().navigate(
-                R.id.action_formularioFragment_to_datosFragment
+            val name = binding.tietName.text.toString()
+            val mobile = binding.tietMobile.text.toString()
+
+            val bundle = bundleOf(
+                "name" to name,
+                "mobile" to mobile
             )
+
+            //Establecemos la navegación entre fragments
+            /*findNavController().navigate(
+                R.id.action_formularioFragment_to_datosFragment,
+                bundle
+            )*/
+
+            //Con safe arguments
+            findNavController().navigate(FormularioFragmentDirections.actionFormularioFragmentToDatosFragment(
+                name,
+                mobile,
+                User(name, mobile)
+            ))
 
         }
     }
